@@ -19,6 +19,11 @@ object problems {
     
   }
   
+  // Bendri pastebėjimai:
+  //
+  // * Nereikia ;.
+  
+  /*
   def problem1(): Unit = {
     var sum = 0;
 	for(i<- 1 to 1000)
@@ -33,7 +38,13 @@ object problems {
 	  return isMultiple;
 	}// end is Multiple
   }//end problem1
+  */
+  def problem1() {
+  	val result = (1 to 1000).view.filter(i => i % 3 == 0 || i % 5 == 0).sum
+  	println(s"Problem 1: $result")
+  }
   
+  /*
   def problem2(): Unit= {
     var sum = 0;
     var fibSeqNumber = 2;
@@ -51,23 +62,52 @@ object problems {
       fibSeqPreviousNumber = temp;      
     }//end generateNextNumber
   }//end problem 2
+  */
   
+  // Truputį pagooglinus.
+  def problem2() {
+  	lazy val fibs:Stream[Int] = 0 #:: 1 #:: (fibs zip fibs.tail).map{ t => t._1 + t._2 }
+  	val result = fibs.takeWhile(_ < 4000000).filter(_ % 2 == 0).sum
+  	println(s"Problem 2: $result")
+  }
+  
+  /*
   def problem3(): Unit= {
-    val number = 600851475143L;
-    val sqrtOfNumber = Math.sqrt(number).toInt;//aukstesni skaiciai negali buti pirminiai daugikliai
+    val number = 13195L;
+    val sqrtOfNumber = Math.sqrt(number).toInt;
     var skaiciai = List(1 to sqrtOfNumber:_*);
     var maxPrime = 0;
-    var notPrime = 0;
+    var notPrime = 0; // !!!!!!!!!!!!!! Apie Boolean tipą žinai? !!!!!!!!!!!!!!!!
     skaiciai = skaiciai.filter(number % _ == 0);//atmetam skaicius kurie nesidalina is number
     for(i <- 1 to skaiciai.length-1){ // nes nulinis elementas visada bus 1, kuris yra pirminis.
       notPrime = 0;
-      for(j<- 2 to skaiciai(i))
+      for(j<- 2 to skaiciai(i)) // <----- !!!!! List access pagal indexa yra O(n) !!!!!
         if((skaiciai(i) == j)&&(notPrime == 0)) maxPrime = j;
         else
           if(skaiciai(i)% j == 0) notPrime = 1; //skaicius ne pirminis
     }
     println("Problem 3: "+maxPrime);   
   }//end problem 3
+  */
+  
+  def problem3() {
+  	// Paprasta pirminio skaičiaus nustatymo implementacija.
+  	def isPrime(i: Long) = {
+  		require(i > 0, s"Only positive numbers are accepted, got $i.")
+  		if (i == 1) true
+  		else ! Stream.range(2L, i - 1).exists(i % _ == 0)
+  	}
+	  	
+  	def primeFactors(number: Long) = {	  	
+	  	Stream.
+	  		range(1, number / 3 /* Lowest prime factor */).
+	  		filter(number % _ == 0).
+	  		filter(isPrime)
+  	}
+  	
+  	val result = primeFactors(600851475143L).last  
+    	println(s"Problem 3: $result")  	
+  }
   
   def problem4(): Unit= {
     var baseNumber = 0;
