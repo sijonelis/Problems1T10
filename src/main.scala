@@ -158,7 +158,7 @@ object problems {
        if(cycleNumber > maxNumber)
          maxNumber = cycleNumber;
      }
-     println("Problem 7: " +maxNumber);
+     println("Problem 8: " +maxNumber);
    }//end prob 8
    
    def problem9(): Unit = {
@@ -173,7 +173,7 @@ object problems {
                  answer = (a, b, c);
                  isFound =1;
                }
-     println(answer);
+     println("Problem 9: " + answer);
    }
    
 }
