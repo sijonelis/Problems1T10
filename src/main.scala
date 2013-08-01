@@ -15,6 +15,7 @@ object problems {
     problem7();
     problem8();
     problem9();
+    problem10();
     
   }
   
@@ -141,7 +142,7 @@ object problems {
     println("Problem 7: " + number );
       
     def isPrime(i: Int): Int = {
-     for(j <- Math.sqrt(i).toInt to 2 by -1)
+     for(j <-2 to Math.sqrt(i).toInt)
        if(i % j == 0)
          return 0;
      return 1;
@@ -174,6 +175,22 @@ object problems {
                  isFound =1;
                }
      println("Problem 9: " + answer);
+   }
+   
+   def problem10(): Unit = {
+     var sum = 0L;
+     for(i <- 2 to 2000000)
+       if(isPrime(i) == 1)
+         sum += i;
+     println("Problem 10: " +sum);
+     
+     def isPrime(i: Int): Int = {
+       for(j <- 2 to Math.sqrt(i).toInt)
+         if(i % j == 0)
+            return 0;
+       return 1;
+    }//end isprime
+     
    }
    
 }
