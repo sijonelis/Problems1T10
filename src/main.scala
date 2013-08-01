@@ -14,6 +14,7 @@ object problems {
     problem6();
     problem7();
     problem8();
+    problem9();
     
   }
   
@@ -158,7 +159,21 @@ object problems {
          maxNumber = cycleNumber;
      }
      println("Problem 7: " +maxNumber);
-   }
+   }//end prob 8
    
+   def problem9(): Unit = {
+     var answer = (0, 0, 0);
+     var isFound = 0;
+     for(a <- 1 to 995)
+       for(b <- 1 to 996)
+         for(c <- 1 to 997)
+           if(isFound == 0)
+             if(a+b+c == 1000)
+               if(a*a+b*b == c*c){
+                 answer = (a, b, c);
+                 isFound =1;
+               }
+     println(answer);
+   }
    
 }
