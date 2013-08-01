@@ -1,5 +1,3 @@
-
-
 import scala.math
 
 import scala.collection.mutable.ListBuffer
@@ -13,6 +11,7 @@ object problems {
     problem3()
     problem4()
     problem5()
+    problem6()
   }
   
   def problem1(): Unit = {
@@ -103,4 +102,24 @@ object problems {
       }
     }//end numberChecker()
   }// end problem5 
+  
+  def problem6(): Unit= {
+    var listSum = 0;
+    var squaresSum = 0;
+    var answer = 0;
+    var skaiciai = List(1 to 100 :_*);
+    listSum = skaiciai.sum;
+    listSum = power2(listSum);
+    skaiciai = skaiciai.map(power2(_));
+    squaresSum = skaiciai.sum;
+    answer = listSum - squaresSum;
+    println("Problem 6: "+answer);
+    
+    def power2(i : Int): Int ={
+      var j = 0;
+      j = i * i;
+      return j;
+    }//end power 2
+  }//end problem 6
+
 }
