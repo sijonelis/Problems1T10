@@ -13,6 +13,7 @@ object problems {
     problem5();
     problem6();
     problem7();
+    problem8();
     
   }
   
@@ -143,6 +144,21 @@ object problems {
        if(i % j == 0)
          return 0;
      return 1;
-    }
-  }
+    }//end isprime
+  }// end prob 7
+  
+   def problem8(): Unit= {
+     val fileLines = io.Source.fromFile("8.txt").getLines.toList;
+     val string = fileLines.mkString;
+     var maxNumber = 0;
+     var cycleNumber = 0;
+     for(i<- 0 to string.length()-5){
+       cycleNumber = string.slice(i, i+1).toInt * string.slice(i+1, i+2).toInt * string.slice(i+2, i+3).toInt * string.slice(i+3, i+4).toInt * string.slice(i+4, i+5).toInt;
+       if(cycleNumber > maxNumber)
+         maxNumber = cycleNumber;
+     }
+     println("Problem 7: " +maxNumber);
+   }
+   
+   
 }
