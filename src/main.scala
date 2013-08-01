@@ -6,12 +6,12 @@ object problems {
     //main funkcija
   def main(args: Array[String]): Unit = 
   {  
-    problem1()
-    problem2()
-    problem3()
-    problem4()
-    problem5()
-    problem6()
+    problem1();
+    problem2();
+    problem3();
+    problem4();
+    problem6();
+    problem7();
   }
   
   def problem1(): Unit = {
@@ -121,5 +121,26 @@ object problems {
       return j;
     }//end power 2
   }//end problem 6
-
+  
+  def problem7(): Unit= {
+    var primeCount = 0
+    var number = 2;
+    while(primeCount != 10001){
+      if(isPrime(number) == 1){
+        primeCount += 1;
+        number += 1;
+      }
+      else
+       number +=1  ;  
+    }
+    number -= 1;
+    println("Problem 7: " + number );
+      
+    def isPrime(i: Int): Int = {
+     for(j <- Math.sqrt(i).toInt to 2 by -1)
+       if(i % j == 0)
+         return 0;
+     return 1;
+    }
+  }
 }
