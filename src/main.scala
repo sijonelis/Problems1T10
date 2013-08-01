@@ -8,7 +8,7 @@ object problems {
   {  
     problem1()
     problem2()
-    //problem3()
+    problem3()
     problem4()
     problem5()
     problem6()
@@ -75,8 +75,27 @@ object problems {
   */
   
   def problem3() {
+    
+   val number = 600851475143L;
+   val sqrtOfNumber = Math.sqrt(number).toInt;//aukstesni skaiciai negali buti pirminiai daugikliai
+   var skaiciai = List(1 to sqrtOfNumber:_*);
+   var maxPrime = 0;
+   var notPrime = 0;
+   skaiciai = skaiciai.filter(number % _ == 0);//atmetam skaicius kurie nesidalina is number
+   for(i <- 0 to skaiciai.length-1){ 
+     if(isPrime(skaiciai(i))) maxPrime = skaiciai(i)
+   }
+   println("Problem 3: "+maxPrime);
+   
+   def isPrime(i: Long) = {
+  		require(i > 0, s"Only positive numbers are accepted, got $i.")
+  		if (i == 1) true
+  		else ! Stream.range(2L, i - 1).exists(i % _ == 0)
+  	}
+ }//end problem 3
+
   	// Paprasta pirminio skaiciaus nustatymo implementacija.
-  	def isPrime(i: Long) = {
+    /*  	def isPrime(i: Long) = {
   		require(i > 0, s"Only positive numbers are accepted, got $i.")
   		if (i == 1) true
   		else ! Stream.range(2L, i - 1).exists(i % _ == 0)
@@ -90,8 +109,7 @@ object problems {
   	}
   	
   	val result = primeFactors(600851475143L).last  
-    	println(s"Problem 3: $result")  	
-  }
+    	println(s"Problem 3: $result")  	*/
   
   
   def problem4(): Unit= {
