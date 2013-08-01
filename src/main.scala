@@ -8,50 +8,30 @@ object problems {
   {  
     problem1()
     problem2()
-    problem3()
+    //problem3()
     problem4()
-   // problem5()
+    problem5()
     problem6()
     problem7()
     problem8()
-    //problem9()
-    //problem10()
+    problem9()
+    problem10()
     
   }
   
-  // Bendri pastebėjimai:
-  //
-  // * Nereikia ;.
-  
-  /*
-  def problem1(): Unit = {
-  	val result = (1 to 1000).view.filter(i => i % 3 == 0 || i % 5 == 0).sum
-  	println(s"Problem 1: $result")
-  }//end problem1
-  */
   def problem1() {
   	val result = (1 to 1000).view.filter(i => i % 3 == 0 || i % 5 == 0).sum
   	println(s"Problem 1: $result")
   }
   
-<<<<<<< HEAD
-  /*
-  def problem2(): Unit= {
-    var sum = 0;
-    var fibSeqNumber = 2;
-    var fibSeqPreviousNumber = 1;
-=======
-  def problem2(): Unit= 
-  {
-  	lazy val fibs:Stream[Int] = 0 #:: 1 #:: (fibs zip fibs.tail).map{ t => t._1 + t._2 }  //lazy ???
-  	val result = fibs.takeWhile(_ < 4000000).filter(_ % 2 == 0).sum
-  	println(s"Problem 2: $result")
- /*
+
+
+/*
   {
     var sum = 0
     var fibSeqNumber = 2
     var fibSeqPreviousNumber = 1
->>>>>>> some code modified
+
     while(fibSeqNumber<4000000){
       if (fibSeqNumber % 2 == 0)
         sum += fibSeqNumber
@@ -64,34 +44,19 @@ object problems {
       fibSeqNumber += fibSeqPreviousNumber
       fibSeqPreviousNumber = temp      
     }//end generateNextNumber
-<<<<<<< HEAD
+
   }//end problem 2
   */
   
-  // Truputį pagooglinus.
+  // Truputi pagooglinus.
   def problem2() {
   	lazy val fibs:Stream[Int] = 0 #:: 1 #:: (fibs zip fibs.tail).map{ t => t._1 + t._2 }
   	val result = fibs.takeWhile(_ < 4000000).filter(_ % 2 == 0).sum
-  	println(s"Problem 2: $result")
-  }
-=======
-*/  }//end problem 2
->>>>>>> some code modified
+  	println("Problem 2: "+ result)
+  }//end problem 2
   
   /*
   def problem3(): Unit= {
-<<<<<<< HEAD
-    val number = 13195L;
-    val sqrtOfNumber = Math.sqrt(number).toInt;
-    var skaiciai = List(1 to sqrtOfNumber:_*);
-    var maxPrime = 0;
-    var notPrime = 0; // !!!!!!!!!!!!!! Apie Boolean tipą žinai? !!!!!!!!!!!!!!!!
-    skaiciai = skaiciai.filter(number % _ == 0);//atmetam skaicius kurie nesidalina is number
-    for(i <- 1 to skaiciai.length-1){ // nes nulinis elementas visada bus 1, kuris yra pirminis.
-      notPrime = 0;
-      for(j<- 2 to skaiciai(i)) // <----- !!!!! List access pagal indexa yra O(n) !!!!!
-        if((skaiciai(i) == j)&&(notPrime == 0)) maxPrime = j;
-=======
     val number = 600851475143L
     val sqrtOfNumber = Math.sqrt(number).toInt//aukstesni skaiciai negali buti pirminiai daugikliai
     var skaiciai = List(1 to sqrtOfNumber:_*)
@@ -102,7 +67,6 @@ object problems {
       notPrime = false
       for(j<- 2 to skaiciai(i))
         if((skaiciai(i) == j)&&(notPrime == false)) maxPrime = j
->>>>>>> some code modified
         else
           if(skaiciai(i)% j == 0) notPrime = true //skaicius ne pirminis
     }
@@ -111,7 +75,7 @@ object problems {
   */
   
   def problem3() {
-  	// Paprasta pirminio skaičiaus nustatymo implementacija.
+  	// Paprasta pirminio skaiciaus nustatymo implementacija.
   	def isPrime(i: Long) = {
   		require(i > 0, s"Only positive numbers are accepted, got $i.")
   		if (i == 1) true
@@ -129,27 +93,6 @@ object problems {
     	println(s"Problem 3: $result")  	
   }
   
-  /*
-   *   def problem3() {
-  	// Paprasta pirminio skaiciaus nustatymo implementacija.
-  	def isPrime(i: Long) = {
-  		require(i > 0, s"Only positive numbers are accepted, got $i.")
-  		if (i == 1) true
-  		else ! Stream.range(2L, i - 1).exists(i % _ == 0)
-  	}
-
-  	def primeFactors(number: Long) = {	  	
-	  	Stream.
-	  		range(1, number / 3 /* Lowest prime factor */).
-	  		filter(number % _ == 0).
-	  		filter(isPrime)
-  	}
-  	
-  	val result = primeFactors(600851475143L).last  
-    	println(s"Problem 3: $result")  	
-  }
-   * 
-   */
   
   def problem4(): Unit= {
     var baseNumber = 0
