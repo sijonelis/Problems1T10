@@ -10,12 +10,12 @@ object problems {
     problem2()
     problem3()
     problem4()
-    problem5()
+    //problem5()
     problem6()
-    problem7()
+   // problem7()
     problem8()
     problem9()
-    problem10()
+  //  problem10()
     
   }
   
@@ -183,16 +183,13 @@ object problems {
    
    def problem9(): Unit = {
      var answer = (0, 0, 0)
-     var isFound = false
-     for(a <- 1 to 995)
-       for(b <- 1 to 996)
-         for(c <- 1 to 997)
-           if(isFound == false)
-             if(a+b+c == 1000)
-               if(a*a+b*b == c*c){
-                 answer = (a, b, c)
-                 isFound = true
-               }
+     var isFound = false   
+     for(a <- 1 to 995; b <- a to 996; c <- b to 997)
+       if((isFound == false)&&(a+b+c == 1000)&&(a*a+b*b == c*c))
+       {
+         answer = (a, b, c)
+         isFound = true
+       }
      println("Problem 9: " + answer)
    }
    
@@ -208,6 +205,12 @@ object problems {
          if(i % j == 0)
             return false
        return true
+       /*
+        * def isPrime(i: Long) = { //grazina bloga ats. 
+  		require(i > 0, s"Only positive numbers are accepted, got $i.")
+  		if (i == 1) true
+  		else ! Stream.range(2L, math.sqrt(i).toInt).exists(i % _ == 0)
+        */
     }//end isprime
      
    }
